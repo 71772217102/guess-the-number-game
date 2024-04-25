@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Document</title>
+   <style>
+    
+    body .header{
+        position: absolute;
+        right:50px;
+        top:60px;
+        
+    }
+    .header h1{
+        font-size: 50px;
+    }
+    .header label{
+        font-size: 35px;
+        color: deeppink;
+    }
+    .header #input{
+        margin-top: 20px;
+        padding: 10px 30px;
+        border-width: 5px;
+        border-radius: 7px;
+        font-size: 20px;
+        background-color: deepskyblue;
+    }
+    .header button{
+        margin-top: 30px;
+        padding: 7px 50px;
+        background-color: deepskyblue;
+        color: black;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+    button:hover{
+        background-color: white;
+    }
+    .header #one{
+        font-size: 25px;
+        margin-top: 25px;
+        color: blue;
+    }
+    .header #two{
+        font-size:25px;
+        margin-top: 25px;
+        color: white;
+        text-shadow:4px 4px 4px rgb(176,145,165);
+    }
+    div img{
+        position: absolute;
+        margin-top: 70px;
+    }
+    body{
+        background-color: darkgray;
+    }
+   </style>
+</head>
+<body>
+    <div class="header">
+
+        <h1>Guess the Number from 1 to 10</h1>
+        <label>Enter number</label><br>
+        <input id="input"><br>
+        <button onclick="match()">Check</button>
+        <p id="one">you are answer is Right/Wrong</p>
+        <p id="two">Score:10</p>
+    </div>
+    <div>
+        <img src="../images/guessnumber.png" height="450px" width="500px">
+    </div>
+    
+   <script>
+    var consoleinput=document.getElementById("input");
+    var consoleone=document.getElementById("one");
+    var consoletwo=document.getElementById("two");
+    var randomnumber=Math.floor(Math.random()*10)+1;
+    var score=10;
+    function match(){
+        var enterednumber=Number(consoleinput.value);
+        if(randomnumber==enterednumber)
+        {
+            console.log("Right");
+            consoleone.textContent="Right";
+            alert("YOU WON THE GAME");
+        }
+        else
+        {
+             score=score-1;
+             if(score<1)
+             {
+                alert("YOUR CHANCE IS OVER");
+             }
+            
+            consoletwo.textContent="Score:"+score;
+           console.log("Wrong");
+           consoleone.textContent="Wrong";
+        }
+    }
+   </script>
+
+
+
+
+</body>
+</html>
